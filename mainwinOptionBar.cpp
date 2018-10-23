@@ -1,5 +1,6 @@
 #include "MainWindow.h"
-
+#include "subwin_person.h"
+#include "subwin_material.h"
 
 bool MainWindow::initOptionBar()
 {
@@ -21,14 +22,14 @@ bool MainWindow::initOptionBarItem(QToolBar *ob)    //initial option bar item;
     bool ret = true;
     QAction* action = NULL;
 
-    ret = ret && makeAction(action,ob," ",":/new/prefix1/UI_Icon/resources.png") && makeSubWindow("person");
+    ret = ret && makeAction(action,ob," ",":/new/prefix1/UI_Icon/resources.png") && makeSubWindow(Person);
     if(ret)
     {
         ob->addAction(action);
         connect(action,SIGNAL(triggered(bool)),this,SLOT(OptionBar_Person()));
     }
 
-    ret = ret && makeAction(action,ob," ",":/new/prefix1/UI_Icon/tasks.png") && makeSubWindow("meterial");
+    ret = ret && makeAction(action,ob," ",":/new/prefix1/UI_Icon/tasks.png") && makeSubWindow(Material);
     if(ret)
     {
         ob->addAction(action);
@@ -37,16 +38,30 @@ bool MainWindow::initOptionBarItem(QToolBar *ob)    //initial option bar item;
 
     return ret;
 }
-bool MainWindow::makeSubWindow(QString name)
+
+bool MainWindow::makeSubWindow(SubWin_flag flag)
 {
     bool ret = true;
 
-    if(name != "")
+    if(flag != 0)
     {
-        SubWindow* temp = new SubWindow(this->centralWidget());
+        SubWindow* temp = NULL;
+        switch (flag)
+        {
+            case Person:
+                temp = new SubWin_person(this->centralWidget());
+                break;
+            case Material:
+                temp = new subwin_material(this->centralWidget());
+                break;
+            default:
+                temp = NULL;
+                break;
+        }
+
         if(temp != NULL)
         {
-            SubWinMap.insert(name,temp);
+            SubWinMap.insert(flag,temp);
         }
         else
         {

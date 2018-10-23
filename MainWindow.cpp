@@ -296,5 +296,8 @@ QAction* MainWindow::findMenuBarAction(QString text)
 
 MainWindow::~MainWindow()
 {
-
+    for(auto iter = SubWinMap.begin();iter != SubWinMap.end();iter++)
+    {
+        delete iter.value();    // return map's value delete here memory;
+    }
 }

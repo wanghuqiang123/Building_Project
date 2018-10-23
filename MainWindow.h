@@ -17,9 +17,11 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    enum SubWin_flag{Person = 1,Material};
+
 protected:
     /*** data memory ***/
-    QMap<QString,SubWindow*>SubWinMap;
+    QMap<SubWin_flag,SubWindow*>SubWinMap;
 
     /*** data memory ***/
 
@@ -42,7 +44,7 @@ protected:
 /*** these are MainWindow Option Bar   *****/
     bool initOptionBar();
     bool initOptionBarItem(QToolBar* ob);
-    bool makeSubWindow(QString name);
+    bool makeSubWindow(SubWin_flag flag);
 
 /***  option bar defined  ****/
 

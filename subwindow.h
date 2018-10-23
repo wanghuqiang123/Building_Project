@@ -2,16 +2,16 @@
 #define SUBWINDOW_H
 
 #include <QWidget>
-#include <QPushButton>
-class SubWindow : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit SubWindow(QWidget *parent = nullptr);
 
-    void Display();
-private:
-    QPushButton btn;
+class SubWindow:public QWidget
+{
+public:
+    SubWindow(QWidget* parent):QWidget(parent)
+    {
+
+    }
+
+    virtual void Disply() = 0;
 
 };
 

@@ -2,11 +2,14 @@
 
 void MainWindow::OptionBar_Person()
 {
-    setCentralWidget(SubWinMap["person"]);
-    SubWinMap["person"]->Display();
+    takeCentralWidget();
+    setCentralWidget(SubWinMap[Person]);
+    SubWinMap[Person]->Disply();
 }
 
 void MainWindow::OptionBar_material()
 {
-//    setCentralWidget();
+    takeCentralWidget();
+    setCentralWidget(SubWinMap[Material]);
+    SubWinMap[Material]->Disply();
 }

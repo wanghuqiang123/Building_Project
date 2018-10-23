@@ -29,11 +29,14 @@ SOURCES += \
     MainWindow.cpp \
     mainwintoolbar.cpp \
     mainwinOptionBar.cpp \
-    subwindow.cpp \
-    optionbarslots.cpp
+    optionbarslots.cpp \
+    subwin_person.cpp \
+    subwin_material.cpp
 
 HEADERS += \
         MainWindow.h \
+    subwin_person.h \
+    subwin_material.h \
     subwindow.h
 
 RESOURCES += \
