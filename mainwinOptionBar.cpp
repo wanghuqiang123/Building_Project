@@ -7,8 +7,8 @@ bool MainWindow::initOptionBar()
     bool ret = true;
 
     QToolBar* ob = new QToolBar("Option Bar");
-    addToolBar(Qt::LeftToolBarArea,ob); //然后在对应的方向加入工具条;
-
+    addToolBar(Qt::TopToolBarArea,ob); //然后在对应的方向加入工具条;
+    ob->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     ob->setIconSize(QSize(50,50));
 
@@ -22,14 +22,14 @@ bool MainWindow::initOptionBarItem(QToolBar *ob)    //initial option bar item;
     bool ret = true;
     QAction* action = NULL;
 
-    ret = ret && makeAction(action,ob," ",":/new/prefix1/UI_Icon/resources.png") && makeSubWindow(Person);
+    ret = ret && makeAction(action,ob,"人工",":/new/prefix1/UI_Icon/resources.png") && makeSubWindow(Person);
     if(ret)
     {
         ob->addAction(action);
         connect(action,SIGNAL(triggered(bool)),this,SLOT(OptionBar_Person()));
     }
 
-    ret = ret && makeAction(action,ob," ",":/new/prefix1/UI_Icon/tasks.png") && makeSubWindow(Material);
+    ret = ret && makeAction(action,ob,"材料",":/new/prefix1/UI_Icon/tasks.png") && makeSubWindow(Material);
     if(ret)
     {
         ob->addAction(action);
@@ -75,3 +75,23 @@ bool MainWindow::makeSubWindow(SubWin_flag flag)
 
     return ret;
 }
+
+
+bool MainWindow::makeAction(QAction* &action,QWidget* parent,QString tip,QString icon)
+{
+    bool ret = true;
+    action = new QAction("",parent);
+
+    if(action != NULL)
+    {
+        action->setIcon(QIcon(icon));
+        action->setIconText(tip);
+    }
+    else
+    {
+        ret = false;
+    }
+
+    return ret;
+}
+

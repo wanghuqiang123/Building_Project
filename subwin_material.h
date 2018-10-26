@@ -8,6 +8,7 @@ class subwin_material:public SubWindow
 {
 public:
     subwin_material(QWidget* parent = nullptr);
+    ~subwin_material();
 
     void Disply();
 

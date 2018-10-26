@@ -31,7 +31,7 @@ bool MainWindow::construct()
     bool ret = true;
     ret = ret && initMenuBar();
     ret = ret && initOptionBar();
-
+    setMinimumSize(850,650);    //设置程序主窗口最小尺寸；
 
     return ret;
 }

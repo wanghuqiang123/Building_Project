@@ -10,6 +10,7 @@ public:
     {
 
     }
+    virtual ~SubWindow() = default;
 
     virtual void Disply() = 0;
 

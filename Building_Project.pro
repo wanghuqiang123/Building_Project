@@ -27,7 +27,6 @@ SOURCES += \
         main.cpp \
     mainwindowslots.cpp \
     MainWindow.cpp \
-    mainwintoolbar.cpp \
     mainwinOptionBar.cpp \
     optionbarslots.cpp \
     subwin_person.cpp \

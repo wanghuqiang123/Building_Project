@@ -10,3 +10,8 @@ void subwin_material::Disply()
     btn->setParent(this);
     btn->setText("material");
 }
+
+ subwin_material::~subwin_material()
+ {
+    delete this->btn;
+ }
